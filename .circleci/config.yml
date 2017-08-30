@@ -7,4 +7,10 @@ jobs:
     steps:
       - checkout
       - run: pip install -r requirements.txt
-      #- run: python app.py
+      - run: docker build -t friendlyhelloangelo .
+  deployment:
+    hub:
+      branch: master
+      commands:
+        - docker login -e angelo29goa@gmail.com -u angelo29goa -p fernandes29
+        - docker push angelo29goa/friendlyhelloangelo
