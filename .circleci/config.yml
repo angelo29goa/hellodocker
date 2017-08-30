@@ -8,9 +8,8 @@ jobs:
       - checkout
       - run: pip install -r requirements.txt
       - run: docker build -t friendlyhelloangelo .
-  deployment:
-    hub:
-      branch: master
-      commands:
-        - docker login -e angelo29goa@gmail.com -u angelo29goa -p fernandes29
-        - docker push angelo29goa/friendlyhelloangelo
+  deploy:
+    working_directory: ~/app
+    steps:
+      - run: docker login -e angelo29goa@gmail.com -u angelo29goa -p fernandes29
+      - run: docker push angelo29goa/friendlyhelloangelo
